@@ -1,24 +1,24 @@
 import typer
 
-app = typer.Typer(add_completion=False)
+from eg.commands.init import init
 
-@app.command()
-def init():
-    print("Hello World")
+app = typer.Typer(add_completion=False)
+app.command()(init)
+
 
 @app.command()
 def commit():
-    print("Hello World")
+    print("Your run commit.")
+
 
 @app.command()
-def hello2(name: str):
+def hello(name: str):
     print(f"hello {name}")
 
 
 def main():
     app()
 
+
 # if __name__ == "__main__":
 #     main()  # 直接运行cli.py的入口
-
-
